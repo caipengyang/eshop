@@ -14,7 +14,7 @@ import '../categories.dart';
 class CategoriesTileView extends StatefulWidget {
   final Function? changeView;
 
-  const CategoriesTileView({ this.changeView}) ;
+  const CategoriesTileView({this.changeView});
 
   @override
   _CategoriesTileViewState createState() => _CategoriesTileViewState();
@@ -43,7 +43,7 @@ class _CategoriesTileViewState extends State<CategoriesTileView>
         listenWhen: (context, state) {
       return state is CategoryErrorState;
     }, listener: (BuildContext context, CategoryState state) {
-          Container(
+      Container(
           padding: EdgeInsets.all(AppSizes.sidePadding),
           child: Text('An error occured',
               style: _theme.textTheme.headline4
@@ -61,7 +61,7 @@ class _CategoriesTileViewState extends State<CategoriesTileView>
                     width: width,
                     padding: EdgeInsets.all(AppSizes.sidePadding * 2),
                     decoration: BoxDecoration(
-                      color: _theme.accentColor,
+                      color: _theme.focusColor,
                       borderRadius: BorderRadius.circular(AppSizes.imageRadius),
                     ),
                     child: Column(

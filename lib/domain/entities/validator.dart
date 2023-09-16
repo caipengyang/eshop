@@ -9,7 +9,7 @@ class Validator {
 
   static String passwordCorrect(dynamic value) {
     var emptyResult = valueExists(value);
-    if (emptyResult == null || emptyResult.isEmpty) {
+    if (emptyResult.isEmpty) {
       var pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$';
       var regExp = RegExp(pattern);
       if (!regExp.hasMatch(value)) {

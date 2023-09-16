@@ -39,7 +39,7 @@ class OpenFlutterScaffold extends StatelessWidget {
             labelStyle: TextStyle(fontWeight: FontWeight.bold),
             tabs: tabBars,
             controller: tabController,
-            indicatorColor: _theme.accentColor,
+            indicatorColor: _theme.hintColor,
             indicatorSize: TabBarIndicatorSize.tab)
         : TabBar(
             tabs: [],

@@ -24,7 +24,7 @@ class FindProductsByFilterUseCaseImpl implements FindProductsByFilterUseCase {
     try {
       var products = await _findProductsByFilter(params);
 
-      if (products != null && products.isNotEmpty) {
+      if (products.isNotEmpty) {
         return ProductsByFilterResult(  
           products,
           products.length,

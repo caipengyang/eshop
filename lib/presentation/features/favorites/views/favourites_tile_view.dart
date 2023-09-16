@@ -49,7 +49,7 @@ class FavouritesTileView extends StatelessWidget {
                   Navigator.of(context)
                     .pushNamed(OpenFlutterEcommerceRoutes.cart);
                 },
-                selectedAttributes: state.data![index]!.favoriteForm
+                selectedAttributes: state.data![index].favoriteForm
               ),
             );
           },

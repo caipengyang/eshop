@@ -4,7 +4,6 @@
  * @see user_repository_impl.dart
  */
 
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/model/app_user.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/user_repository.dart';
 import 'package:openflutterecommerce/data/woocommerce/repositories/remote_user_repository.dart';

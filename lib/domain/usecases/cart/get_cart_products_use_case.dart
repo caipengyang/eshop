@@ -1,10 +1,3 @@
-/// # 5. Product Cart screen
-/// 5.1. Product cart use-case: List of products in the cart is 
-/// displayed. If there is a promo code set as default and 
-/// was not used yet then it is applied to current order in the cart.
-/// https://medium.com/@openflutterproject/open-flutter-project-e-commerce-app-use-cases-and-features-6b7414a6e708
-
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/model/cart_item.dart';
 import 'package:openflutterecommerce/data/model/promo.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/cart_repository.dart';

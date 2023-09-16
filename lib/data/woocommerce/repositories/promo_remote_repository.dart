@@ -1,5 +1,4 @@
 
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/model/promo.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/promo_repository.dart';
 import 'package:openflutterecommerce/data/woocommerce/models/promo_code_model.dart';

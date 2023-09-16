@@ -21,7 +21,7 @@ class GetPromosUseCaseImpl implements GetPromosUseCase {
       PromoRepository promoRepository = sl();
       var promos = await promoRepository.getPromoList();
 
-      if (promos != null && promos.isNotEmpty) {
+      if (promos.isNotEmpty) {
         return GetPromosResult(  
           promos: promos,
           result: true, exception: null!

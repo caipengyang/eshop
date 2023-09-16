@@ -4,7 +4,6 @@
  * @see user_repository.dart
  */
 
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/model/app_user.dart';
 
 abstract class UserRepository {

@@ -66,10 +66,9 @@ class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
 
       //check favorites
       dataStorage.products = [];
-      products.forEach((product) => {
-            dataStorage.products
+      products.forEach((product) => dataStorage.products
                 .add(product.favorite(checkFavorite(product.id)))
-          });
+          );
 
       return dataStorage.products;
     } on HttpRequestException {
@@ -108,8 +107,7 @@ class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
     //TODO: remove from database in the future
     dataStorage.favProducts.removeWhere((product) =>
         product.product.id == productId &&
-        (selectedAttributes == null ||
-            product.favoriteForm == selectedAttributes));
+        (product.favoriteForm == selectedAttributes));
     return dataStorage.favProducts;
   }
 

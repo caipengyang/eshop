@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/category_repository.dart';
 import 'package:openflutterecommerce/data/model/category.dart';
 import 'package:openflutterecommerce/data/error/exceptions.dart';

@@ -1,6 +1,5 @@
 import 'dart:collection';
 
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/model/favorite_product.dart';
 import 'package:openflutterecommerce/data/model/hashtag.dart';
 import 'package:openflutterecommerce/data/model/product.dart';
@@ -45,8 +44,8 @@ class FilterRules {
 
   /// this behavior can be changed in subclasses to show special attribute instead of first
   MapEntry<ProductAttribute, List<String>>? get topmostOption =>
-      selectableAttributes?.entries?.isNotEmpty == true
-          ? selectableAttributes?.entries?.first
+      selectableAttributes.entries.isNotEmpty == true
+          ? selectableAttributes.entries.first
           : MapEntry<ProductAttribute, List<String>>(
               ProductAttribute(name: '', id: -1, options: [], info: ''), []);
 
@@ -100,17 +99,15 @@ class FilterRules {
               ?
               // returnAttributes.addAll({for (var attribute in product.selectableAttributes) attribute: []})
               product.selectableAttributes.forEach((attribute) => {
-                    if (attribute != null)
-                      {
-                        if (attributesIdToString[attribute.id] == null)
-                          {
-                            attributesIdToString[attribute.id] = [],
-                            attributesIdToAttribute[attribute.id] = attribute
-                          },
-                        attributesIdToString[attribute.id]
-                            ?.addAll(attribute.options)
-                      }
-                  })
+                      if (attributesIdToString[attribute.id] == null)
+                        {
+                          attributesIdToString[attribute.id] = [],
+                          attributesIdToAttribute[attribute.id] = attribute
+                        },
+                      attributesIdToString[attribute.id]
+                          ?.addAll(attribute.options)
+                    }
+                  )
               : {},
           if (product.price > maxPrice) maxPrice = product.price,
           if (product.price < minPrice) minPrice = product.price,
@@ -120,10 +117,9 @@ class FilterRules {
                   {categoryIds.add(category.id), categories[category] = false}
               })
         });
-    attributesIdToString.keys.forEach((attributeById) => {
-          returnAttributes[attributesIdToAttribute[attributeById]!!] =
+    attributesIdToString.keys.forEach((attributeById) => returnAttributes[attributesIdToAttribute[attributeById]!] =
               attributesIdToString[attributeById]!.toSet().toList()
-        });
+        );
 
     return FilterRules(
         categories: categories,

@@ -1,7 +1,5 @@
-import 'dart:collection';
 
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/model/product_attribute.dart';
 
 import 'product.dart';

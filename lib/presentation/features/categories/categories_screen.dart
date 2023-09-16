@@ -29,7 +29,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as CategoriesParameters?;
 
-    print('widget parameters at categories screen ${args}');
+    print('widget parameters at categories screen $args');
     return SafeArea(
         child: BlocProvider<CategoryBloc>(
             create: (context) {

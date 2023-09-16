@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/config/theme.dart';
 import 'package:openflutterecommerce/data/model/filter_rules.dart';
 import 'package:openflutterecommerce/data/model/product.dart';

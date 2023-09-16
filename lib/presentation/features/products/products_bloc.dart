@@ -3,7 +3,6 @@
 // Date: 2020-02-06
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/model/category.dart';
 import 'package:openflutterecommerce/data/model/favorite_product.dart';
 import 'package:openflutterecommerce/data/model/product.dart';

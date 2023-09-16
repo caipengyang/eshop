@@ -40,12 +40,10 @@ class OpenFlutterCollapsingScaffold extends StatelessWidget {
   List<Widget> _buildSilverAppBar(BuildContext context) {
     var tabBars = <Tab>[];
     var _theme = Theme.of(context);
-    if (tabBarList != null) {
-      for (var i = 0; i < tabBarList.length; i++) {
-        tabBars.add(Tab(key: UniqueKey(), text: tabBarList[i]));
-      }
+    for (var i = 0; i < tabBarList.length; i++) {
+      tabBars.add(Tab(key: UniqueKey(), text: tabBarList[i]));
     }
-
+  
     PreferredSizeWidget tabWidget = tabBars.isNotEmpty
         ? TabBar(
             unselectedLabelColor: _theme.primaryColor,
@@ -54,7 +52,7 @@ class OpenFlutterCollapsingScaffold extends StatelessWidget {
             labelStyle: TextStyle(fontWeight: FontWeight.bold),
             tabs: tabBars,
             controller: tabController,
-            indicatorColor: _theme.accentColor,
+            indicatorColor: _theme.colorScheme.secondary,
             indicatorSize: TabBarIndicatorSize.tab)
         : TabBar(tabs: [],);
 

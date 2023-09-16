@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:openflutterecommerce/config/server_addresses.dart';
 import 'package:openflutterecommerce/data/model/filter_rules.dart';
@@ -30,16 +29,10 @@ class NetworkRequest {
 
   Future<http.Response> getResult() async {
     print('ADDRESS: $address');
-    if (listBody != null) {
-      print('listBody: ${jsonEncode(listBody)}');
-    }
-    if (plainBody != null) {
+    print('listBody: ${jsonEncode(listBody)}');
       print('plainBody: $plainBody');
-    }
-    if (body != null) {
       print('body: ${jsonEncode(body)}');
-    }
-    http.Response response;
+      http.Response response;
     headers ??= _jsonHeaders;
     try {
       Uri uri = address; //Uri.parse(address);
@@ -84,20 +77,12 @@ class NetworkRequest {
       FilterRules filterRules,
       SortRules sortRules) {
     List<String> parameters = [];
-    if (pageIndex != null) {
-      parameters.add('page=${pageIndex + 1}');
-    }
-    if (pageSize != null) {
+    parameters.add('page=${pageIndex + 1}');
       parameters.add('per_page=$pageSize');
-    }
-    if (categoryId != null) {
       parameters.add('category=$categoryId');
-    }
-    if (sortRules != null) {
       parameters.add('orderby=${sortRules.jsonRuleName}');
-      parameters.add('order=${sortRules.jsonOrder}');
-    }
-    //TODO add filter rules here
+    parameters.add('order=${sortRules.jsonOrder}');
+      //TODO add filter rules here
     Uri serverAddress =
         Uri(path: ServerAddresses.serverAddress + '?' + parameters.join('&'));
     return NetworkRequest(

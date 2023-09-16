@@ -26,8 +26,7 @@ class ProductDetailsView extends StatefulWidget {
       required this.changeView,
       required this.similarProducts,
       this.category,
-      this.hasReviews = false})
-      : assert(product != null);
+      this.hasReviews = false});
 
   @override
   _ProductDetailsViewState createState() => _ProductDetailsViewState();
@@ -40,7 +39,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
 
   @override
   void initState() {
-    favorite = widget.product?.isFavorite ?? false;
+    favorite = widget.product.isFavorite ?? false;
     super.initState();
   }
 

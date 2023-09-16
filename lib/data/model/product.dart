@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 import 'package:openflutterecommerce/data/model/hashtag.dart';
 import 'package:openflutterecommerce/data/error/exceptions.dart';
 import 'package:openflutterecommerce/domain/entities/entity.dart';
@@ -164,7 +163,7 @@ class Product extends Equatable {
     }
   }
 
-  CommerceImage get mainImage => (images != null && images.isNotEmpty)
+  CommerceImage get mainImage => (images.isNotEmpty)
       ? images.first
       : CommerceImage.placeHolder();
 }

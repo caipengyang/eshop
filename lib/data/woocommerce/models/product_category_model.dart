@@ -1,5 +1,4 @@
 
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/domain/entities/product/product_category_entity.dart';
 
 class ProductCategoryModel extends ProductCategoryEntity {

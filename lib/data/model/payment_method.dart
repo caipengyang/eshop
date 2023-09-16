@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/domain/entities/checkout/payment_method_entity.dart';
 
 class PaymentMethodModel extends PaymentMethodEntity {

@@ -42,11 +42,11 @@ class _SettingsViewState extends State<SettingsView> {
 
   @override
   void dispose() {
-    _currentPasswordController?.dispose();
-    _newPasswordController?.dispose();
-    _repeatPasswordController?.dispose();
-    _fullNameController?.dispose();
-    _dateOfBirthController?.dispose();
+    _currentPasswordController.dispose();
+    _newPasswordController.dispose();
+    _repeatPasswordController.dispose();
+    _fullNameController.dispose();
+    _dateOfBirthController.dispose();
     super.dispose();
   }
 

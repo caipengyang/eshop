@@ -16,14 +16,15 @@ class OpenFlutterSelectValuesBoxes<T> extends StatefulWidget {
       required this.selectedValues,
       required this.label,
       required this.onClick,
-      required this.boxWidth})
-      ;
+      required this.boxWidth});
 
   @override
-  _OpenFlutterSelectValuesBoxesState<T> createState() => _OpenFlutterSelectValuesBoxesState<T>();
+  _OpenFlutterSelectValuesBoxesState<T> createState() =>
+      _OpenFlutterSelectValuesBoxesState<T>();
 }
 
-class _OpenFlutterSelectValuesBoxesState<T> extends State<OpenFlutterSelectValuesBoxes<T>> {
+class _OpenFlutterSelectValuesBoxesState<T>
+    extends State<OpenFlutterSelectValuesBoxes<T>> {
   late List<T> selectedValues;
 
   @override
@@ -46,7 +47,8 @@ class _OpenFlutterSelectValuesBoxesState<T> extends State<OpenFlutterSelectValue
           child: Column(children: <Widget>[
             Container(
               width: width,
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.sidePadding * 2),
+              padding:
+                  EdgeInsets.symmetric(horizontal: AppSizes.sidePadding * 2),
               child: Wrap(children: buildSelectBoxes(context)),
             )
           ]))
@@ -77,15 +79,22 @@ class _OpenFlutterSelectValuesBoxesState<T> extends State<OpenFlutterSelectValue
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(4)),
           border: Border.all(
-              color: widget.selectedValues.contains(currentValue) ? _theme.accentColor : _theme.primaryColorLight),
-          color: widget.selectedValues.contains(currentValue) ? _theme.accentColor : AppColors.white),
+              color: widget.selectedValues.contains(currentValue)
+                  ? _theme.focusColor
+                  : _theme.primaryColorLight),
+          color: widget.selectedValues.contains(currentValue)
+              ? _theme.focusColor
+              : AppColors.white),
       padding: EdgeInsets.symmetric(
-          vertical: AppSizes.sidePadding, horizontal: widget.boxWidth == null ? AppSizes.sidePadding : 0),
+          vertical: AppSizes.sidePadding,
+          horizontal: widget.boxWidth == null ? AppSizes.sidePadding : 0),
       child: Text(
         convertValueToString(currentValue).toUpperCase(),
         overflow: TextOverflow.ellipsis,
         style: _theme.textTheme.headline2?.copyWith(
-          color: widget.selectedValues.contains(currentValue) ? AppColors.white : _theme.accentColor,
+          color: widget.selectedValues.contains(currentValue)
+              ? AppColors.white
+              : _theme.focusColor,
         ),
       ),
     );
@@ -100,14 +109,12 @@ class _OpenFlutterSelectValuesBoxesState<T> extends State<OpenFlutterSelectValue
   }
 
   void updateSelectedBoxes(T currentValue) {
-    if (selectedValues != null) {
-      if (selectedValues.contains(currentValue)) {
-        selectedValues.remove(currentValue);
-      } else {
-        selectedValues.add(currentValue);
-      }
+    if (selectedValues.contains(currentValue)) {
+      selectedValues.remove(currentValue);
+    } else {
+      selectedValues.add(currentValue);
     }
-    setState(() {});
+      setState(() {});
     widget.onClick(selectedValues);
   }
 }

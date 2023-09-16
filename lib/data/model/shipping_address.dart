@@ -1,5 +1,4 @@
 
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/domain/entities/checkout/shipping_address_entity.dart';
 
 class ShippingAddressModel extends ShippingAddressEntity {

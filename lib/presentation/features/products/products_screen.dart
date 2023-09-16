@@ -50,7 +50,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 return CustomScrollView(
                   slivers: <Widget>[
                     SizeChangingAppBar(
-                      title: state.data?.category?.name??'',
+                      title: state.data?.category.name??'',
                       filterRules: state.filterRules!,
                       sortRules: state.sortBy!,
                       isListView: state is ProductsListViewState,

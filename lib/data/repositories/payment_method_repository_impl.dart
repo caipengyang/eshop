@@ -22,7 +22,7 @@ class PaymentMethodRepositoryImpl implements PaymentMethodRepository{
   
     @override
     Future<List<PaymentMethodModel>> getPaymentMethodList() async {
-       if ( dataStorage.paymentMethods?.isEmpty == true ) {
+       if ( dataStorage.paymentMethods.isEmpty == true ) {
         FakePaymentMethodRepository repo = FakePaymentMethodRepository();
         dataStorage.paymentMethods = await repo.getPaymentMethodList();
       }

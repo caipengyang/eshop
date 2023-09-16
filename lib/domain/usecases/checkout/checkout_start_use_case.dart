@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/model/cart_item.dart';
 import 'package:openflutterecommerce/data/model/payment_method.dart';
 import 'package:openflutterecommerce/data/model/shipping_address.dart';
