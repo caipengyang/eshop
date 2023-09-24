@@ -1,5 +1,5 @@
 class OpenFlutterDatabaseConfig {
-  static const String databaseName = 'openflutterdatabase19.db';
+  static const String databaseName = 'openflutter.db';
   static const int databaseVersion = 1;
   static const createTablesQueries = [
     'CREATE TABLE IF NOT EXISTS Product(id INTEGER PRIMARY KEY, title TEXT, image TEXT, thumb TEXT, price REAL, discountPercent REAL, categoryId INTEGER, amount INTEGER, description TEXT, isFavourite NUMERIC, rating REAL, rating1Count INTEGER, rating2Count INTEGER, rating3Count INTEGER, rating4Count INTEGER, rating5Count INTEGER)',

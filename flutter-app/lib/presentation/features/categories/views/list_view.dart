@@ -27,6 +27,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
     var _theme = Theme.of(context);
     return BlocListener<CategoryBloc, CategoryState>(
         listener: (context, state) {
+          print('blocListener state is:$state');
       if (state is CategoryErrorState) {
         Container(
             padding: EdgeInsets.all(AppSizes.sidePadding),
@@ -36,6 +37,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
       }
     }, child:
             BlocBuilder<CategoryBloc, CategoryState>(builder: (context, state) {
+              print('bloc builder state is:$state');
       if (state is CategoryListViewState) {
         return SingleChildScrollView(
           child: Column(
@@ -70,6 +72,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
 
   List<Widget> buildCategoryList(List<ProductCategory> categories) {
     var elements = <Widget>[];
+    print('categories: $categories');
     for (var i = 0; i < categories.length; i++) {
       elements.add(
         InkWell(

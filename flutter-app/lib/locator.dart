@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
+import 'package:openflutterecommerce/data/debug/debug.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/cart_repository.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/category_repository.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/favorites_repository.dart';
@@ -119,5 +120,7 @@ void init() {
 
   sl.registerLazySingleton<PaymentMethodRepository>(
     () => PaymentMethodRepositoryImpl(PaymentMethodDataStorage([]))
-  );  
+  );
+
+  sl.registerLazySingleton<Debug>(() => DebugImpl());
 }

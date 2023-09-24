@@ -10,6 +10,7 @@ class SQLiteDbProvider {
     db = await openDatabase(
       join(await getDatabasesPath(), OpenFlutterDatabaseConfig.databaseName),
       onCreate: (db, version) {
+        print('create db');
         return _createDb(db);
       },
       version: OpenFlutterDatabaseConfig.databaseVersion,

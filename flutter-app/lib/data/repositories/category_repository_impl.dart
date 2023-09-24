@@ -1,9 +1,11 @@
 
 import 'package:openflutterecommerce/data/repositories/abstract/category_repository.dart';
 import 'package:openflutterecommerce/data/model/category.dart';
+import 'package:openflutterecommerce/data/debug/debug.dart';
 import 'package:openflutterecommerce/data/error/exceptions.dart';
 import 'package:openflutterecommerce/data/local/local_category_repository.dart';
 import 'package:openflutterecommerce/data/network/network_status.dart';
+import 'package:openflutterecommerce/data/repositories/fake_repos/category_repository.dart';
 import 'package:openflutterecommerce/data/woocommerce/repositories/category_remote_repository.dart';
 import 'package:openflutterecommerce/locator.dart';
 
@@ -15,8 +17,15 @@ class CategoryRepositoryImpl extends CategoryRepository {
     try
     {
       NetworkStatus networkStatus = sl();
+      Debug debug = sl();
       CategoryRepository categoryRepository;
-      if ( networkStatus.isConnected != null ) {
+      var connected = await networkStatus.isConnected;
+      var categoryDatasource = await debug.categoryDatasource;
+      print('is connected:$connected, categoryDatasource: $categoryDatasource');
+
+      if (categoryDatasource == Debug.FAKE) {
+        categoryRepository = FakeCategoryRepository();
+      }else if ( connected &&(categoryDatasource == Debug.SALEOR  || categoryDatasource == Debug.NULL)) {
         categoryRepository = RemoteCategoryRepository(woocommerce: sl());
       } else {
         categoryRepository = LocalCategoryRepository();
