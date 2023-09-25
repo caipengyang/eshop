@@ -178,7 +178,7 @@ class OpenFlutterEcommerceApp extends StatelessWidget {
       );
     } else if (settings.name == OpenFlutterEcommerceRoutes.productList) {
       return MaterialPageRoute(builder: (context) {
-        return ProductsScreen();
+        return ProductsScreen(parameters: settings.arguments as ProductListScreenParameters?);
       });
     } else if (settings.name == OpenFlutterEcommerceRoutes.product) {
       return MaterialPageRoute(builder: (context) {

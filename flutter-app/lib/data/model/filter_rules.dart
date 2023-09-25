@@ -15,6 +15,7 @@ class FilterRules {
   final List<HashTag> hashTags;
   final HashMap<HashTag, bool> selectedHashTags;
 
+
   FilterRules(
       {required this.categories,
       required this.hashTags,
@@ -24,6 +25,7 @@ class FilterRules {
       required this.selectedPriceRange})
       : selectedAttributes =
             selectedAttributes ?? HashMap<ProductAttribute, List<String>>();
+
 
   FilterRules copyWithAdditionalAttribute(
       ProductAttribute attribute, String value) {

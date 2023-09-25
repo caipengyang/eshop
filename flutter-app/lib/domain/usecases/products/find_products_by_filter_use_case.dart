@@ -28,7 +28,7 @@ class FindProductsByFilterUseCaseImpl implements FindProductsByFilterUseCase {
         return ProductsByFilterResult(  
           products,
           products.length,
-          FilterRules.getSelectableAttributes(products), exception: null!
+          FilterRules.getSelectableAttributes(products), exception: null
         );
       }
 
@@ -36,7 +36,7 @@ class FindProductsByFilterUseCaseImpl implements FindProductsByFilterUseCase {
       return ProductsByFilterResult(  
         [],
         0,
-        null!,
+        null,
         exception: EmptyProductsException()
       );
     }

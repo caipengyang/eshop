@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:openflutterecommerce/config/theme.dart';
@@ -56,7 +58,7 @@ class SizeChangingAppBar extends StatelessWidget {
             Container(
               height: 30,
               child: VisualFilter(
-                  filterRules!.hashTags, filterRules!.selectedHashTags,
+                  filterRules?.hashTags??[], filterRules?.selectedHashTags??HashMap(),
                   (updateValue, isSelected) {
                 BlocProvider.of<ProductsBloc>(context).add(
                     ProductChangeHashTagEvent(updateValue, isSelected));

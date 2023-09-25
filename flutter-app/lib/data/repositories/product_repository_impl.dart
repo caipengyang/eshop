@@ -12,8 +12,11 @@ import 'package:openflutterecommerce/data/repositories/abstract/product_reposito
 import 'package:openflutterecommerce/data/error/exceptions.dart';
 import 'package:openflutterecommerce/data/local/local_product_repository.dart';
 import 'package:openflutterecommerce/data/network/network_status.dart';
+import 'package:openflutterecommerce/data/repositories/fake_repos/product_repository.dart';
 import 'package:openflutterecommerce/data/woocommerce/repositories/product_remote_repository.dart';
 import 'package:openflutterecommerce/locator.dart';
+import 'package:openflutterecommerce/data/debug/debug.dart';
+
 
 //Uses remote or local data depending on NetworkStatus
 class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
@@ -55,14 +58,19 @@ class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
     // TODO: implement getProducts
     try {
       NetworkStatus networkStatus = sl();
+      Debug debug = sl();
       ProductRepository productRepository;
-      if (networkStatus.isConnected != null) {
+      var connected = await networkStatus.isConnected;
+      var productDatasource = await debug.productDatasource;
+      if (productDatasource == Debug.FAKE) {
+        productRepository = FakeProductRepository();
+      }else if (connected && (productDatasource == Debug.SALEOR || productDatasource == Debug.NULL)) {
         productRepository = RemoteProductRepository(woocommerce: sl());
       } else {
         productRepository = LocalProductRepository();
       }
 
-      List<Product> products = await productRepository.getProducts(filterRules: null!);
+      List<Product> products = await productRepository.getProducts(filterRules: null);
 
       //check favorites
       dataStorage.products = [];

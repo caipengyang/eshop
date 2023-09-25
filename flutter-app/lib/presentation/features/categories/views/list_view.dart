@@ -82,7 +82,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                       .add(ChangeCategoryParent(categories[i].id));
                 }
               : () {
-                  Navigator.of(context).pushNamed(
+                  Navigator.of(context, rootNavigator: true).pushNamed(
                       OpenFlutterEcommerceRoutes.productList,
                       arguments: ProductListScreenParameters(categories[i]));
                 },

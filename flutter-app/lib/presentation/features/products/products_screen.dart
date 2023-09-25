@@ -29,7 +29,7 @@ class ProductListScreenParameters {
 class _ProductsScreenState extends State<ProductsScreen> {
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as ProductListScreenParameters;
+    //final args = ModalRoute.of(context)!.settings.arguments as ProductListScreenParameters;
     return SafeArea(
       child: OpenFlutterScaffold(
         background: null,
@@ -47,12 +47,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 }
               },
               builder: (context, state) {
+                print('product state is:{state}');
                 return CustomScrollView(
                   slivers: <Widget>[
                     SizeChangingAppBar(
                       title: state.data?.category.name??'',
-                      filterRules: state.filterRules!,
-                      sortRules: state.sortBy!,
+                      filterRules: state.filterRules,
+                      sortRules: state.sortBy,
                       isListView: state is ProductsListViewState,
                       onFilterRulesChanged: (filter) {
                         BlocProvider.of<ProductsBloc>(context)

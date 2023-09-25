@@ -5,7 +5,7 @@ import 'package:openflutterecommerce/data/model/product.dart';
 class ProductListData {
   final List<Product> products;
   final ProductCategory category;
-  final FilterRules filterRules;
+  final FilterRules? filterRules;
 
   ProductListData(this.products, this.category, this.filterRules);
 

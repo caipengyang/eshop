@@ -38,7 +38,7 @@ abstract class ProductsState extends Equatable {
   bool get hasError => error != null;
 
   @override
-  List<Object> get props => [data!, filterRules!, sortBy!];
+  List<Object> get props => [data!=null?data!:0, filterRules!=null?filterRules!:0, sortBy!=null?sortBy!:0];
 
   @override
   bool get stringify => true;

@@ -116,6 +116,7 @@ class ProductsBloc extends Bloc<ProductsListEvent, ProductsState> {
   }
 
   Future<ProductListData> getInitialStateData(ProductCategory category) async {
+    print('category: $category');
     ProductsByFilterResult productResults = await findProductsByFilterUseCase.execute(
       ProductsByFilterParams(
         categoryId: category.id
