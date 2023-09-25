@@ -1,4 +1,6 @@
 #include "my_application.h"
+#include <cstdlib>
+#include <sstream>
 
 #include <flutter_linux/flutter_linux.h>
 #ifdef GDK_WINDOWING_X11
@@ -11,6 +13,20 @@ struct _MyApplication {
   GtkApplication parent_instance;
   char** dart_entrypoint_arguments;
 };
+
+template<typename T>
+T getEnv(const char* name, T defaultValue) {
+    const char* value = std::getenv(name);
+    if (value == nullptr) {
+        return defaultValue;
+    }else{
+        std::stringstream ss;
+        ss << value;
+        ss >> defaultValue;
+        return defaultValue;
+    }
+}
+
 
 G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
 
@@ -47,7 +63,10 @@ static void my_application_activate(GApplication* application) {
     gtk_window_set_title(window, "eshop");
   }
 
-  gtk_window_set_default_size(window, 1280, 720);
+  // gtk_window_set_default_size(window, 1280, 720);
+  gtk_window_set_default_size(window,
+  getEnv("FLUTTER_WINDOW_WIDTH", 430),
+  getEnv("FLUTTER_WINDOW_HEIGHT", 932));
   gtk_widget_show(GTK_WIDGET(window));
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();
